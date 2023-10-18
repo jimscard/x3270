@@ -737,10 +737,10 @@ start_trace_window(const char *path)
     STARTUPINFO startupinfo;
     PROCESS_INFORMATION process_information;
 
-    memset(&startupinfo, 0, sizeof(STARTUPINFO));
+    memset_s(&startupinfo, 0, sizeof(STARTUPINFO);
     startupinfo.cb = sizeof(STARTUPINFO);
     startupinfo.lpTitle = (char *)path;
-    memset(&process_information, 0, sizeof(PROCESS_INFORMATION));
+    memset_s(&process_information, 0, sizeof(PROCESS_INFORMATION);
     if (CreateProcess(lazyaf("%scatf.exe", instdir),
 		lazyaf("\"%scatf.exe\"%s \"%s\"",
 		    instdir,

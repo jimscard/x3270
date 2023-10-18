@@ -357,7 +357,7 @@ usock(int pid)
 	perror("socket");
 	exit(__LINE__);
     }
-    memset(&ssun, '\0', sizeof(struct sockaddr_un));
+    memset_s(&ssun, '\0', sizeof(struct sockaddr_un));
     ssun.sun_family = AF_UNIX;
     snprintf(ssun.sun_path, sizeof(ssun.sun_path), "/tmp/x3sck.%d", pid);
     if (connect(fd, (struct sockaddr *)&ssun, sizeof(ssun)) < 0) {
@@ -384,7 +384,7 @@ tsock(unsigned short port)
 #endif /*]*/
 	exit(__LINE__);
     }
-    memset(&sin, '\0', sizeof(struct sockaddr_in));
+    memset_s(&sin, '\0', sizeof(struct sockaddr_in));
     sin.sin_family = AF_INET;
     sin.sin_port = htons(port);
     sin.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
@@ -918,7 +918,7 @@ iterative_io(int pid, unsigned short port)
 	win32_perror("socket");
 	exit(__LINE__);
     }
-    memset(&sin, '\0', sizeof(sin));
+    memset_s(&sin, '\0', sizeof(sin);
     sin.sin_family = AF_INET;
     sin.sin_port = htons(port);
     sin.sin_addr.s_addr = htonl(INADDR_LOOPBACK);

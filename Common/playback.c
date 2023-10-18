@@ -347,7 +347,7 @@ main(int argc, char *argv[])
 #endif /*]*/
 	}
 	addrlen = sizeof(asa);
-	memset(&asa, 0, sizeof(asa));
+	memset_s(&asa, 0, sizeof(asa);
 	s2 = accept(s, &asa.sa, &addrlen);
 	if (s2 < 0) {
 	    sockerr("accept");

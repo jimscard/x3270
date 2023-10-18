@@ -2009,7 +2009,7 @@ start_auto_shortcut(int argc, char *argv[])
 	fflush(stderr);
 	x3270_exit(1);
     }
-    memset(&s, '\0', sizeof(session_t));
+    memset_s(&s, '\0', sizeof(session_t);
     if (read_session(f, &s, NULL) == 0) {
 	fprintf(stderr, "%s: invalid format\n", profile_path);
 	fflush(stderr);

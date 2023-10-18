@@ -142,14 +142,14 @@ main(int argc, char *argv[])
 
 	/* Use greek_remap to rearrange ebc2cg0 into a Greek ebc2cg. */
 	/*memcpy(ebc2cg, ebc2cg0, sizeof(ebc2cg));*/
-	memset(ebc2cg, '\0', sizeof(ebc2cg));
+	memset_s(ebc2cg, '\0', sizeof(ebc2cg);
 	for (i = 0; i < 256; i++) {
 	    if (greek_remap[i] != 0)
 		ebc2cg[i] = asc2cg[greek_remap[i]];
 	}
 
 	/* Now create cg2u from ebc2cg and cp875. */
-	memset(cg2u, '\0', sizeof(cg2u));
+	memset_s(cg2u, '\0', sizeof(cg2u);
 	for (i = 0x41; i <= 0xfe; i++) {
 	    if ((cp875[i-0x41] & 0xff00) == 0x0300)
 		cg2u[ebc2cg[i]] = cp875[i-0x41];

@@ -112,20 +112,20 @@ class TestS3270Smoke(cti.cti):
         ts.close()
 
         # Send it a JSON GET.
-        r = requests.get(f'http://{loopback}:{port}/3270/rest/json/Set(monoCase)')
+        r = requests.get(f'https://{loopback}:{port}/3270/rest/json/Set(monoCase)')
         s = r.json()
         self.assertEqual(s['result'], ['false'])
         self.assertTrue(s['status'].startswith('L U U N N 4 24 80 0 0 0x0 '))
 
         # Send it a JSON POST.
-        r = requests.post(f'http://{loopback}:{port}/3270/rest/post',
+        r = requests.post(f'https://{loopback}:{port}/3270/rest/post',
                 json={'action': 'set', 'args': ['monoCase']})
         s = r.json()
         self.assertEqual(s['result'], ['false'])
         self.assertTrue(s['status'].startswith('L U U N N 4 24 80 0 0 0x0 '))
 
         # Wait for the process to exit.
-        requests.get(f'http://{loopback}:{port}/3270/rest/json/Quit()')
+        requests.get(f'https://{loopback}:{port}/3270/rest/json/Quit()')
         self.vgwait(s3270)
 
     # s3270 httpd smoke test

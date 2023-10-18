@@ -493,7 +493,7 @@ pr3287_start_now(const char *lu, bool associated)
 	popup_a_sockerr("socket(printer sync)");
 	return;
     }
-    memset(&pr3287_lsa, '\0', sizeof(pr3287_lsa));
+    memset_s(&pr3287_lsa, '\0', sizeof(pr3287_lsa);
     pr3287_lsa.sin_family = AF_INET;
     pr3287_lsa.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
     if (bind(pr3287_ls, (struct sockaddr *)&pr3287_lsa,
@@ -503,7 +503,7 @@ pr3287_start_now(const char *lu, bool associated)
 	pr3287_ls = INVALID_SOCKET;
 	return;
     }
-    memset(&pr3287_lsa, '\0', sizeof(pr3287_lsa));
+    memset_s(&pr3287_lsa, '\0', sizeof(pr3287_lsa);
     pr3287_lsa.sin_family = AF_INET;
     len = sizeof(pr3287_lsa);
     if (getsockname(pr3287_ls, (struct sockaddr *)&pr3287_lsa, &len) < 0) {
@@ -777,7 +777,7 @@ pr3287_start_now(const char *lu, bool associated)
     }
 
     /* Create a named pipe for pr3287's stderr. */
-    memset(&sa, 0, sizeof(sa));
+    memset_s(&sa, 0, sizeof(sa);
     sa.nLength = sizeof(SECURITY_ATTRIBUTES); 
     sa.bInheritHandle = TRUE; 
     sa.lpSecurityDescriptor = NULL; 
@@ -809,12 +809,12 @@ pr3287_start_now(const char *lu, bool associated)
 	goto done;
     }
 
-    memset(&si, '\0', sizeof(si));
+    memset_s(&si, '\0', sizeof(si);
     si.cb = sizeof(pi);
     si.hStdError = pr3287_stderr_wr;
     si.dwFlags |= STARTF_USESTDHANDLES;
 
-    memset(&pi, '\0', sizeof(pi));
+    memset_s(&pi, '\0', sizeof(pi);
     if (!CreateProcess(NULL, cp_cmdline, NULL, NULL, TRUE, DETACHED_PROCESS,
 		NULL, NULL, &si, &pi)) {
 	popup_an_error("CreateProcess() for printer session failed: %s",

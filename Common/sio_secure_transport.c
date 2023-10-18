@@ -478,7 +478,7 @@ display_cert(varbuf_t *v, const char *prefix, SecCertificateRef cert)
     if (desc != NULL) {
 	char text[1024];
 
-	memset(text, 0, sizeof(text));
+	memset_s(text, 0, sizeof(text);
 	if (CFStringGetCString(desc, text, sizeof(text),
 		    kCFStringEncodingUTF8)) {
 	    vb_appendf(v, "%s cert: %s\n", prefix, text);
@@ -971,7 +971,7 @@ sio_init(tls_config_t *c, const char *password, sio_t *sio_ret)
 
     config = c;
     s = (stransport_sio_t *)Malloc(sizeof(stransport_sio_t));
-    memset(s, 0, sizeof(*s));
+    memset_s(s, 0, sizeof(*s);
 
     s->sock = INVALID_SOCKET;
     s->context = SSLCreateContext(kCFAllocatorDefault, kSSLClientSide,

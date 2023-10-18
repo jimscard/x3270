@@ -353,8 +353,8 @@ pr_net_negotiate(const char *host, struct sockaddr *sa, socklen_t len,
     setup_lus(lu, assoc);
 
     /* Set up telnet options. */
-    memset((char *) myopts, 0, sizeof(myopts));
-    memset((char *) hisopts, 0, sizeof(hisopts));
+    memset_s(char *) myopts, 0, sizeof(myopts);
+    memset_s(char *) hisopts, 0, sizeof(hisopts);
     e_funcs = E_OPT(TN3270E_FUNC_BIND_IMAGE) |
 	      E_OPT(TN3270E_FUNC_DATA_STREAM_CTL) |
 	      E_OPT(TN3270E_FUNC_RESPONSES) |

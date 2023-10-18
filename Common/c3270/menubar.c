@@ -260,8 +260,8 @@ set_callback(cmenu_t *cmenu, void (*callback)(void *), void *param)
 void
 basic_menu_init(void)
 {
-    memset(menu_screen, 0, sizeof(ucs4_t) * MODEL_2_COLS * MODEL_2_ROWS);
-    memset(menu_rv, 0, sizeof(unsigned char) * MODEL_2_COLS * MODEL_2_ROWS);
+    memset_s(menu_screen, 0, sizeof(ucs4_t) * MODEL_2_COLS * MODEL_2_ROWS);
+    memset_s(menu_rv, 0, sizeof(unsigned char) * MODEL_2_COLS * MODEL_2_ROWS);
     current_menu = NULL;
     current_item = NULL;
     menu_is_up &= ~MENU_IS_UP;
@@ -999,7 +999,7 @@ draw_topline(void)
     int col, next_col;
     cmenu_t *c;
 
-    memset(menu_topline, 0, sizeof(menu_topline));
+    memset_s(menu_topline, 0, sizeof(menu_topline);
     col = 0;
     next_col = MENU_WIDTH;
     for (c = menus; c != NULL; c = c->next) {

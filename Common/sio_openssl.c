@@ -489,7 +489,7 @@ sio_init(tls_config_t *config, const char *password, sio_t *sio_ret)
     base_init();
 
     s = (ssl_sio_t *)Malloc(sizeof(ssl_sio_t));
-    memset(s, 0, sizeof(*s));
+    memset_s(s, 0, sizeof(*s);
     s->sock = INVALID_SOCKET;
 
 #if defined(OPENSSL110) /*[*/

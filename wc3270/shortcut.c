@@ -121,7 +121,7 @@ create_link(LPCSTR path_obj, LPSTR path_link, LPSTR desc, LPSTR args,
 	goto out;
     }
 
-    memset(&p, '\0', sizeof(NT_CONSOLE_PROPS));
+    memset_s(&p, '\0', sizeof(NT_CONSOLE_PROPS));
     p.cbSize = sizeof(p);
     p.dwSignature = NT_CONSOLE_PROPS_SIG;
     p.wFillAttribute = 7;		/* ? */
@@ -175,7 +175,7 @@ create_link(LPCSTR path_obj, LPSTR path_link, LPSTR desc, LPSTR args,
     if (codepage) {
 	NT_FE_CONSOLE_PROPS pfe;
 
-	memset(&pfe, '\0', sizeof(pfe));
+	memset_s(&pfe, '\0', sizeof(pfe);
 	pfe.cbSize = sizeof(pfe);
 	pfe.dwSignature = NT_FE_CONSOLE_PROPS_SIG;
 	pfe.uCodePage = codepage;

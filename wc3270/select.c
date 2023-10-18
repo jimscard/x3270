@@ -105,7 +105,7 @@ select_init(unsigned max_rows, unsigned max_cols)
     s_pending = Malloc(max_rows * max_cols);
     s_onscreen = Malloc(max_rows * max_cols);
     unselect(0, max_rows * max_cols);
-    memset(s_onscreen, 0, max_rows * max_cols);
+    memset_s(s_onscreen, 0, max_rows * max_cols);
 }
 
 /*
@@ -122,7 +122,7 @@ unselect(int baddr, int len)
     rubber_banding = false;
     select_started = false;
     word_selected = false;
-    memset(s_pending, 0, ROWS * COLS);
+    memset_s(s_pending, 0, ROWS * COLS);
     screen_changed = true;
     st_changed(ST_SELECTING, false);
 }
@@ -133,7 +133,7 @@ reselect(bool generate_event)
     bool any = false;
 
     /* Clear out the current selection. */
-    memset(s_pending, 0, ROWS * COLS);
+    memset_s(s_pending, 0, ROWS * COLS);
 
     /* Fill in from start to end, which may be backwards. */
 

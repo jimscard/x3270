@@ -83,7 +83,7 @@ ws_start_printer(const char *printer_name)
     }
 
     /* Talk to the printer. */
-    memset(&defaults, '\0', sizeof(defaults));
+    memset_s(&defaults, '\0', sizeof(defaults);
     defaults.pDatatype = "RAW";
     defaults.pDevMode = NULL;
     defaults.DesiredAccess = PRINTER_ACCESS_USE;

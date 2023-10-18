@@ -126,7 +126,7 @@ main(int argc, char *argv[])
 		fprintf(stderr, "Out of memory.\n");
 		exit(1);
 	    }
-	    memset(s, '\0', sizeof(sensmap_t));
+	    memset_s(s, '\0', sizeof(sensmap_t));
 	    s->name = c;
 	    s->ul_x = s->lr_x = x;
 	    s->ul_y = s->lr_y = y;

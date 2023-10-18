@@ -91,7 +91,7 @@ inet_ntop(int af, const void *src, char *dst, socklen_t cnt)
     DWORD sz = cnt;
 
     *dst = '\0';
-    memset(&sa, '\0', sizeof(sa));
+    memset_s(&sa, '\0', sizeof(sa);
 
     switch (af) {
     case AF_INET:

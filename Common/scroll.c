@@ -120,7 +120,7 @@ scroll_buf_init(void)
 	    (sizeof(unsigned char) + sizeof(struct ea))) * maxCOLS;
     sbuf = Malloc(sa_bufsize);
     zbuf = Malloc(maxCOLS);
-    memset(zbuf, '\0', maxCOLS);
+    memset_s(zbuf, '\0', maxCOLS);
     defaults_buf = Calloc(maxCOLS, sizeof(struct ea));
     for (i = 0; i < maxCOLS; i++) {
 	/*
@@ -160,7 +160,7 @@ screen_set_thumb_traced(float top, float shown, int saved, int screen,
 static void
 scroll_reset(void)
 {
-    memset(sbuf, 0, sa_bufsize);
+    memset_s(sbuf, 0, sa_bufsize);
     scroll_next = 0;
     n_saved = 0;
     scrolled_back = 0;

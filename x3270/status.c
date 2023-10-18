@@ -489,7 +489,7 @@ status_reinit(unsigned cmask)
 	    status_line[i].d2b = display_2b + offsets[i];
 	}
     } else {
-	memset(display_2b, 0, maxCOLS * sizeof(XChar2b));
+	memset_s(display_2b, 0, maxCOLS * sizeof(XChar2b);
     }
     if (cmask & (COLOR_CHANGE | MODEL_CHANGE)) {
 	for (i = 0; i < SSZ; i++) {
@@ -587,7 +587,7 @@ status_touch(void)
 
     for (i = 0; i < SSZ; i++) {
 	status_line[i].changed = true;
-	memset(status_line[i].d2b, 0, status_line[i].len * sizeof(XChar2b));
+	memset_s(status_line[i].d2b, 0, status_line[i].len * sizeof(XChar2b);
     }
     status_changed = true;
 }
@@ -922,7 +922,7 @@ status_lu(const char *lu)
 	strncpy(oia_lu, lu, LUCNT);
 	oia_lu[LUCNT] = '\0';
     } else {
-	memset(oia_lu, '\0', sizeof(oia_lu));
+	memset_s(oia_lu, '\0', sizeof(oia_lu);
     }
     do_lu(oia_lu);
 }

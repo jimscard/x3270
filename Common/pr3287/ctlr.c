@@ -239,9 +239,9 @@ ctlr_write(unsigned char buf[], size_t buflen, bool erase)
     }
 
     if (!page_buf_initted) {
-	memset(page_buf, '\0', MAX_BUF * sizeof(ucs4_t));
-	memset(xlate_buf, '\0', MAX_BUF * sizeof(unsigned char *));
-	memset(xlate_len, '\0', MAX_BUF * sizeof(int));
+	memset_s(page_buf, '\0', MAX_BUF * sizeof(ucs4_t);
+	memset_s(xlate_buf, '\0', MAX_BUF * sizeof(unsigned char *));
+	memset_s(xlate_len, '\0', MAX_BUF * sizeof(int));
 	page_buf_initted = true;
 	baddr = 0;
     }
@@ -1828,9 +1828,9 @@ dump_unformatted(void)
     }
 
     /* Clear out the buffer. */
-    memset(page_buf, '\0', MAX_BUF * sizeof(ucs4_t));
-    memset(xlate_buf, '\0', MAX_BUF * sizeof(unsigned char *));
-    memset(xlate_len, '\0', MAX_BUF * sizeof(int));
+    memset_s(page_buf, '\0', MAX_BUF * sizeof(ucs4_t);
+    memset_s(xlate_buf, '\0', MAX_BUF * sizeof(unsigned char *));
+    memset_s(xlate_len, '\0', MAX_BUF * sizeof(int));
 
     /* Clear the output state. */
     for (i = 0; i < MAX_UNF_MPP + 2; i++) {
@@ -2001,7 +2001,7 @@ dump_formatted(void)
     }
 
     /* Clear the buffer. */
-    memset(page_buf, '\0', MAX_BUF * sizeof(ucs4_t));
+    memset_s(page_buf, '\0', MAX_BUF * sizeof(ucs4_t);
 #if defined(_WIN32) /*[*/
     if (ws_initted) {
 	    ws_flush();
@@ -2143,7 +2143,7 @@ ctlr_erase(void)
     }
 
     /* Make sure the buffer is clean. */
-    memset(page_buf, '\0', MAX_BUF * sizeof(ucs4_t));
+    memset_s(page_buf, '\0', MAX_BUF * sizeof(ucs4_t);
     any_3270_output = 0;
     baddr = 0;
     return 0;

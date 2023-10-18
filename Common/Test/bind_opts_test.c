@@ -237,7 +237,7 @@ resolve_host_and_port_abs(const char *host, char *portname,
 	}
     }
 
-    memset(&hints, '\0', sizeof(struct addrinfo));
+    memset_s(&hints, '\0', sizeof(struct addrinfo));
     hints.ai_flags = 0;
     hints.ai_family = PF_UNSPEC;
     hints.ai_socktype = SOCK_STREAM;

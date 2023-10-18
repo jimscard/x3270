@@ -92,7 +92,7 @@ add_to_cache(tls_config_t *config, const char *password)
 
     /* Create a new entry. */
     p = (password_cache_t *)Malloc(sizeof(password_cache_t));
-    memset(&p->config, 0, sizeof(tls_config_t));
+    memset_s(&p->config, 0, sizeof(tls_config_t));
     p->config.cert_file = nstrdup(config->cert_file);
     p->config.cert_file_type = nstrdup(config->cert_file_type);
     p->config.chain_file = nstrdup(config->chain_file);

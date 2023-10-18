@@ -192,14 +192,14 @@ save_empty(void)
 
     /* Zero saved_ea. */
     Replace(saved_ea, (struct ea *)Malloc(se));
-    memset(saved_ea, 0, se);
+    memset_s(saved_ea, 0, se);
     saved_rows = ROWS;
     saved_cols = COLS;
     saved_ea_is_empty = true;
 
     /* Erase saved_s. */
     Replace(saved_s, (screen_t *)Malloc(ss));
-    memset(saved_s, 0, ss);
+    memset_s(saved_s, 0, ss);
     for (i = 0; i < maxROWS * maxCOLS; i++) {
 	saved_s[i].ccode = ' ';
 	saved_s[i].fg = mode.m3279? HOST_COLOR_BLUE: HOST_COLOR_NEUTRAL_WHITE;
@@ -359,7 +359,7 @@ render_screen(struct ea *ea, screen_t *s)
     bool fa_high;
 
     /* Start with all blanks, blue on black. */
-    memset(s, 0, maxROWS * maxCOLS * sizeof(screen_t));
+    memset_s(s, 0, maxROWS * maxCOLS * sizeof(screen_t);
     for (i = 0; i < maxROWS * maxCOLS; i++) {
 	s[i].ccode = ' ';
 	s[i].fg = mode.m3279? HOST_COLOR_BLUE : HOST_COLOR_NEUTRAL_WHITE;
@@ -1051,7 +1051,7 @@ screen_scroll(unsigned char fg, unsigned char bg)
     if (!saved_ea_is_empty) {
 	memmove(saved_ea, saved_ea + COLS,
 		(ROWS - 1) * COLS * sizeof(struct ea));
-	memset(saved_ea + (ROWS - 1) * COLS, 0, COLS * sizeof(struct ea));
+	memset_s(saved_ea + (ROWS - 1) * COLS, 0, COLS * sizeof(struct ea));
 	for (i = 0; i < COLS; i++) {
 	    saved_ea[((ROWS - 1) * COLS) + i].fg = 0xf0 | fg;
 	    saved_ea[((ROWS - 1) * COLS) + i].bg = 0xf0 | bg;
@@ -1061,7 +1061,7 @@ screen_scroll(unsigned char fg, unsigned char bg)
     /* Scroll saved_s. */
     memmove(saved_s, saved_s + COLS,
 	    (maxROWS - 1) * maxCOLS * sizeof(screen_t));
-    memset(saved_s + (maxROWS - 1) * maxCOLS, 0, maxCOLS * sizeof(screen_t));
+    memset_s(saved_s + (maxROWS - 1) * maxCOLS, 0, maxCOLS * sizeof(screen_t);
     for (i = 0; i < maxCOLS; i++) {
 	int j = ((maxROWS - 1) * maxCOLS) + i;
 

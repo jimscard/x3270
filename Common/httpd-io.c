@@ -296,7 +296,7 @@ hio_connection(iosrc_t fd, ioid_t id)
 #endif /*]*/
 
     session = Malloc(sizeof(session_t));
-    memset(session, 0, sizeof(session_t));
+    memset_s(session, 0, sizeof(session_t);
     session->listener = l;
     vb_init(&session->pending.result);
     session->pending.jresult = NULL;

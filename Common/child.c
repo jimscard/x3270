@@ -142,7 +142,7 @@ init_child(void)
 #else /*][*/
 
     /* Create pipes. */
-    memset(&sa, 0, sizeof(sa));
+    memset_s(&sa, 0, sizeof(sa);
     sa.nLength = sizeof(SECURITY_ATTRIBUTES);
     sa.bInheritHandle = TRUE;
     sa.lpSecurityDescriptor = NULL;

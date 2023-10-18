@@ -139,11 +139,11 @@ new_split_host(char *raw, char **lu, char **host, char **port, char **accept,
      */
     uq = Malloc(sl + 1);
     qmap = Malloc(sl + 1);
-    memset(qmap, ' ', sl);
+    memset_s(qmap, ' ', sl);
     qmap[sl] = '\0';
     rqmap = qmap;
     skip_map = Malloc(sl + 1);
-    memset(skip_map, ' ', sl);
+    memset_s(skip_map, ' ', sl);
     skip_map[sl] = '\0';
     for (s = start; (size_t)(s - start) < sl; s++) {
 	if (isspace((unsigned char)*s)) {

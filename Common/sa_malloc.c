@@ -111,7 +111,7 @@ Calloc(size_t nmemb, size_t size)
     void *ret;
 
     ret = Malloc(total);
-    memset(ret, 0, total);
+    memset_s(ret, 0, total);
     return ret;
 }
 

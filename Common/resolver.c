@@ -136,7 +136,7 @@ resolve_host_and_port_v46(const char *host, char *portname,
 	}
     }
 
-    memset(&hints, '\0', sizeof(struct addrinfo));
+    memset_s(&hints, '\0', sizeof(struct addrinfo));
     hints.ai_flags = 0;
     hints.ai_family = abs? PF_UNSPEC: want_pf();
     hints.ai_socktype = SOCK_STREAM;
@@ -221,7 +221,7 @@ async_resolve(LPVOID parameter)
     assert(gaip->busy == true);
     assert(gaip->done == false);
     gaip->done = true;
-    memset(&hints, '\0', sizeof(struct addrinfo));
+    memset_s(&hints, '\0', sizeof(struct addrinfo));
     hints.ai_flags = 0;
     hints.ai_family = want_pf();
     hints.ai_socktype = SOCK_STREAM;
@@ -594,7 +594,7 @@ mock_sync_resolver(const char *m, const char *host, char *portname,
     struct addrinfo hints;
 
     *nr = 0;
-    memset(&hints, 0, sizeof(struct addrinfo));
+    memset_s(&hints, 0, sizeof(struct addrinfo));
     hints.ai_flags = AI_NUMERICHOST | AI_NUMERICSERV;
     hints.ai_family = PF_UNSPEC;
     hints.ai_socktype = SOCK_STREAM;

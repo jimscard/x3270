@@ -52,7 +52,7 @@ Calloc(size_t nelem, size_t elsize)
     if (r == NULL) {
 	Error("Out of memory");
     }
-    return memset(r, '\0', nelem * elsize);
+    return memset_s(r, '\0', nelem * elsize);
 }
 
 void *

@@ -202,7 +202,7 @@ httpd_data_trace(httpd_t *h, const char *direction, const char *buf,
     unsigned char linebuf[BPL];
     size_t j;
 
-    memset(linebuf, 0, BPL);
+    memset_s(linebuf, 0, BPL);
     for (i = 0; i < len; i++) {
 	if (!(i % BPL)) {
 	    if (i) {
@@ -449,7 +449,7 @@ httpd_reinit_request(request_t *r)
 static void
 httpd_init_request(request_t *r)
 {
-    memset(r, 0, sizeof(*r));
+    memset_s(r, 0, sizeof(*r);
     httpd_reinit_request(r);
 }
 
@@ -2066,7 +2066,7 @@ httpd_new(void *mhandle, const char *client_name)
     httpd_t *h;
 
     h = Malloc(sizeof(httpd_t));
-    memset(h, 0, sizeof(*h));
+    memset_s(h, 0, sizeof(*h);
     httpd_init_state(h, mhandle);
 
     vtrace("h< [%lu] New session from %s\n", h->seq, client_name);
@@ -2139,7 +2139,7 @@ httpd_close(void *dhandle, const char *why)
     httpd_free_request(&h->request);
 
     /* Free it. */
-    memset(h, 0, sizeof(*h));
+    memset_s(h, 0, sizeof(*h);
     Free(h);
 }
 

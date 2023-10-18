@@ -468,7 +468,7 @@ wait_for_callbacks(int listen_s, int sockets[], int n)
 	    struct sockaddr_in sin;
 	    socklen_t len;
 
-	    memset(&sin, 0, sizeof(sin));
+	    memset_s(&sin, 0, sizeof(sin);
 	    sin.sin_family = AF_INET;
 	    len = sizeof(sin);
 	    s = accept(listen_s, (struct sockaddr *)&sin, &len);
@@ -602,7 +602,7 @@ tcl3270_main(Tcl_Interp *interp, int argc, const char *argv[])
 	perror("socket");
 	exit(99);
     }
-    memset(&sin, 0, sizeof(sin));
+    memset_s(&sin, 0, sizeof(sin);
     sin.sin_family = AF_INET;
     sin.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
     if (bind(listen_s, (struct sockaddr *)&sin, sizeof(sin)) < 0) {

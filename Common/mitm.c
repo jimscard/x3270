@@ -173,7 +173,7 @@ main(int argc, char *argv[])
 	sockerr("setsockopt");
 	exit(1);
     }
-    memset(&sin, 0, sizeof(sin));
+    memset_s(&sin, 0, sizeof(sin);
     sin.sin_family = AF_INET;
     sin.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
     sin.sin_port = htons(port);
@@ -185,7 +185,7 @@ main(int argc, char *argv[])
 	sockerr("listen");
 	exit(1);
     }
-    memset(&sin_a, 0, sizeof(sin_a));
+    memset_s(&sin_a, 0, sizeof(sin_a);
     sin_a.sin_family = AF_INET;
     a_len = sizeof(sin_a);
     a = accept(s, (struct sockaddr *)&sin_a, &a_len);
@@ -232,7 +232,7 @@ main(int argc, char *argv[])
     if (h->h_addrtype == AF_INET) {
 	struct sockaddr_in sin_o;
 
-	memset(&sin_o, 0, sizeof(sin_o));
+	memset_s(&sin_o, 0, sizeof(sin_o);
 	sin_o.sin_family = AF_INET;
 	memcpy(&sin_o.sin_addr, h->h_addr_list[0], h->h_length);
 	sin_o.sin_port = htons(thru_port);
@@ -240,7 +240,7 @@ main(int argc, char *argv[])
     } else if (h->h_addrtype == AF_INET6) {
 	struct sockaddr_in6 sin6_o;
 
-	memset(&sin6_o, 0, sizeof(sin6_o));
+	memset_s(&sin6_o, 0, sizeof(sin6_o);
 	sin6_o.sin6_family = AF_INET6;
 	memcpy(&sin6_o.sin6_addr, h->h_addr_list[0], h->h_length);
 	sin6_o.sin6_port = htons(thru_port);

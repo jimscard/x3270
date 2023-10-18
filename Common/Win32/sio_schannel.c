@@ -428,7 +428,7 @@ create_credentials(LPSTR friendly_name, PCredHandle creds, bool *manual)
     }
 
     /* Build Schannel credential structure. */
-    memset(&schannel_cred, 0, sizeof(schannel_cred));
+    memset_s(&schannel_cred, 0, sizeof(schannel_cred);
     schannel_cred.dwVersion  = SCHANNEL_CRED_VERSION;
     if (cert_context != NULL) {
 	schannel_cred.cCreds = 1;
@@ -515,7 +515,7 @@ get_new_client_credentials(CredHandle *creds, CtxtHandle *context)
     }
 
     /* Enumerate the client certificates. */
-    memset(&find_by_issuer_params, 0, sizeof(find_by_issuer_params));
+    memset_s(&find_by_issuer_params, 0, sizeof(find_by_issuer_params);
 
     find_by_issuer_params.cbSize = sizeof(find_by_issuer_params);
     find_by_issuer_params.pszUsageIdentifier = szOID_PKIX_KP_CLIENT_AUTH;
@@ -975,7 +975,7 @@ verify_server_certificate(
 	    server_name_size);
 
     /* Build certificate chain. */
-    memset(&chain_params, 0, sizeof(chain_params));
+    memset_s(&chain_params, 0, sizeof(chain_params);
     chain_params.cbSize = sizeof(chain_params);
     chain_params.RequestedUsage.dwType = USAGE_MATCH_TYPE_OR;
     chain_params.RequestedUsage.Usage.cUsageIdentifier = usages_count;
@@ -1003,11 +1003,11 @@ verify_server_certificate(
     policy_https.fdwChecks      = cert_flags;
     policy_https.pwszServerName = server_name_wide;
 
-    memset(&policy_params, 0, sizeof(policy_params));
+    memset_s(&policy_params, 0, sizeof(policy_params);
     policy_params.cbSize = sizeof(policy_params);
     policy_params.pvExtraPolicyPara = &policy_https;
 
-    memset(&policy_status, 0, sizeof(policy_status));
+    memset_s(&policy_status, 0, sizeof(policy_status);
     policy_status.cbSize = sizeof(policy_status);
 
     if (!CertVerifyCertificateChainPolicy(CERT_CHAIN_POLICY_SSL, chain_context,
@@ -1156,14 +1156,14 @@ sio_free(schannel_sio_t *s)
     /* Free the SSPI context handle. */
     if (s->context_set) {
         DeleteSecurityContext(&s->context);
-	memset(&s->context, 0, sizeof(s->context));
+	memset_s(&s->context, 0, sizeof(s->context);
         s->context_set = false;
     }
 
     /* Free the SSPI credentials handle. */
     if (s->client_creds_set) {
         FreeCredentialsHandle(&s->client_creds);
-	memset(&s->client_creds, 0, sizeof(s->client_creds));
+	memset_s(&s->client_creds, 0, sizeof(s->client_creds);
         s->client_creds_set = false;
     }
 
@@ -1226,7 +1226,7 @@ sio_init(tls_config_t *c, const char *password, sio_t *sio_ret)
     config = c;
 
     s = (schannel_sio_t *)Malloc(sizeof(schannel_sio_t));
-    memset(s, 0, sizeof(*s));
+    memset_s(s, 0, sizeof(*s);
     s->sock = INVALID_SOCKET;
 
     /* Create credentials. */
@@ -1424,14 +1424,14 @@ fail:
     /* Free the SSPI context handle. */
     if (s->context_set) {
         DeleteSecurityContext(&s->context);
-	memset(&s->context, 0, sizeof(s->context));
+	memset_s(&s->context, 0, sizeof(s->context);
         s->context_set = false;
     }
 
     /* Free the SSPI credentials handle. */
     if (s->client_creds_set) {
         FreeCredentialsHandle(&s->client_creds);
-	memset(&s->client_creds, 0, sizeof(s->client_creds));
+	memset_s(&s->client_creds, 0, sizeof(s->client_creds);
         s->client_creds_set = false;
     }
 

@@ -183,7 +183,7 @@ xim_lookup(XKeyEvent *event)
     }
 
     for (;;) {
-	memset(buf, '\0', buf_len);
+	memset_s(buf, '\0', buf_len);
 	rlen = XmbLookupString(ic, event, buf, buf_len - 1, &k, &status);
 	if (status != XBufferOverflow) {
 	    break;

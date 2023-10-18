@@ -26,7 +26,7 @@ main(int argc, char *argv[])
 	fprintf(stderr, "no converter\n");
 	exit(1);
     }
-    memset(d8, '\0', sizeof(d8));
+    memset_s(d8, '\0', sizeof(d8);
     for (i = 0x41; i < 0xff; i++) {
 	size_t nc;
 

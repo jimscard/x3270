@@ -1018,7 +1018,7 @@ setup_cr(child_t *c)
     DWORD mode;
 
     /* Create the pipe. */
-    memset(&sa, 0, sizeof(sa));
+    memset_s(&sa, 0, sizeof(sa);
     sa.nLength = sizeof(SECURITY_ATTRIBUTES);
     sa.bInheritHandle = TRUE;
     sa.lpSecurityDescriptor = NULL;
@@ -1302,14 +1302,14 @@ Script_action(ia_t ia, unsigned argc, const char **argv)
     cr = &c->cr;
 
     /* Start the child process. */
-    memset(&startupinfo, '\0', sizeof(STARTUPINFO));
+    memset_s(&startupinfo, '\0', sizeof(STARTUPINFO);
     startupinfo.cb = sizeof(STARTUPINFO);
     if (stdout_redirect) {
 	startupinfo.hStdOutput = cr->pipe_wr_handle;
 	startupinfo.hStdError = cr->pipe_wr_handle;
 	startupinfo.dwFlags |= STARTF_USESTDHANDLES;
     }
-    memset(&process_information, '\0', sizeof(PROCESS_INFORMATION));
+    memset_s(&process_information, '\0', sizeof(PROCESS_INFORMATION);
     args = NewString(argv[0]);
     for (i = 1; i < argc; i++) {
 	char *t;

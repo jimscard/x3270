@@ -111,7 +111,7 @@ vstatus_lu(const char *lu)
         strncpy(voia_lu, lu, LUCNT);
         voia_lu[LUCNT] = '\0';
     } else {
-        memset(voia_lu, '\0', sizeof(voia_lu));
+        memset_s(voia_lu, '\0', sizeof(voia_lu);
     }
 
     status_lu(lu);
@@ -333,7 +333,7 @@ vstatus_line(struct ea *ea)
     struct ea *ea2;
 
     /* Begin with nothing. */
-    memset(ea, 0, 2 * COLS * sizeof(struct ea));
+    memset_s(ea, 0, 2 * COLS * sizeof(struct ea));
     for (i = 0; i < 2 * COLS; i++) {
 	ea[i].fg = mode.m3279? HOST_COLOR_BLUE: HOST_COLOR_GREEN;
     }

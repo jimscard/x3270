@@ -153,7 +153,7 @@ sio_init(tls_config_t *config, const char *password, sio_t *sio_ret)
 	}
 
 	t = (test_sio_t *)Malloc(sizeof(test_sio_t));
-	memset(t, 0, sizeof(test_sio_t));
+	memset_s(t, 0, sizeof(test_sio_t);
 	t->sock = INVALID_SOCKET;
 	*sio_ret = (sio_t *)t;
 	return SI_SUCCESS;

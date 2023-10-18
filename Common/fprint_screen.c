@@ -915,7 +915,7 @@ fprint_screen_done(fps_t *ofps)
     /* Done with the context. */
     Free(fps->caption);
     Free(fps->printer_name);
-    memset(fps, '\0', sizeof(*fps));
+    memset_s(fps, '\0', sizeof(*fps);
     Free(*(void **)ofps);
     *(void **)ofps = NULL;
 

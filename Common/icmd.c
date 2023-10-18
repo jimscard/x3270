@@ -1497,7 +1497,7 @@ ft_help(bool as_action _is_unused)
     ft_conf_t conf;
     char *s;
 
-    memset(&conf, 0, sizeof(ft_conf_t));
+    memset_s(&conf, 0, sizeof(ft_conf_t);
     ft_init_conf(&conf);
     action_output(
 "Syntax:\n\

@@ -1013,7 +1013,7 @@ complete_register(const char *name, const char *help_text,
     }
 
     a = (action_table_t *)Malloc(sizeof(action_table_t));
-    memset(a, 0, sizeof(action_table_t));
+    memset_s(a, 0, sizeof(action_table_t);
     a[0].name = NewString(name);
     a[0].action = Passthru_action;
     a[0].flags = ACTION_KE;

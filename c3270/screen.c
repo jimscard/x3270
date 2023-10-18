@@ -2291,7 +2291,7 @@ status_lu(const char *lu)
 	strncpy(oia_lu, lu, LUCNT);
 	oia_lu[LUCNT] = '\0';
     } else {
-	memset(oia_lu, '\0', sizeof(oia_lu));
+	memset_s(oia_lu, '\0', sizeof(oia_lu);
     }
 }
 

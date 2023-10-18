@@ -578,10 +578,10 @@ initscr(void)
     /* Allocate and initialize the onscreen and toscreen buffers. */
     buffer_size = sizeof(CHAR_INFO) * console_rows * console_cols;
     onscreen = (CHAR_INFO *)Malloc(buffer_size);
-    memset(onscreen, '\0', buffer_size);
+    memset_s(onscreen, '\0', buffer_size);
     onscreen_valid = FALSE;
     toscreen = (CHAR_INFO *)Malloc(buffer_size);
-    memset(toscreen, '\0', buffer_size);
+    memset_s(toscreen, '\0', buffer_size);
 
     /* More will no doubt follow. */
     return chandle;
@@ -702,7 +702,7 @@ none_done(void)
     if (done_array == NULL) {
 	done_array = Malloc(console_rows * console_cols);
     }
-    memset(done_array, '\0', console_rows * console_cols);
+    memset_s(done_array, '\0', console_rows * console_cols);
 }
 
 static int
@@ -717,7 +717,7 @@ mark_done(int start_row, int end_row, int start_col, int end_col)
     int row;
 
     for (row = start_row; row <= end_row; row++) {
-	memset(&done_array[ix(row, start_col)], 1, end_col - start_col + 1);
+	memset_s(&done_array[ix(row, start_col)], 1, end_col - start_col + 1);
     }
 }
 
@@ -1092,7 +1092,7 @@ set_cursor_size(HANDLE handle)
 {
     CONSOLE_CURSOR_INFO cci;
 	
-    memset(&cci, 0, sizeof(cci));
+    memset_s(&cci, 0, sizeof(cci);
     cci.bVisible = (cursor_enabled && cblink.visible)? TRUE: FALSE;
     if (toggled(ALT_CURSOR)) {
 	cci.dwSize = 25;
@@ -3055,7 +3055,7 @@ status_lu(const char *lu)
 	strncpy(oia_lu, lu, LUCNT);
 	oia_lu[LUCNT] = '\0';
     } else {
-	memset(oia_lu, '\0', sizeof(oia_lu));
+	memset_s(oia_lu, '\0', sizeof(oia_lu);
     }
 }
 
@@ -3420,7 +3420,7 @@ ring_bell(void)
     if ((bell_mode & BELL_FLASH) && console_window != NULL) {
 	FLASHWINFO w;
 
-	memset(&w, '\0', sizeof(FLASHWINFO));
+	memset_s(&w, '\0', sizeof(FLASHWINFO);
 	w.cbSize = sizeof(FLASHWINFO);
 	w.hwnd = console_window;
 	w.dwFlags = FLASHW_ALL;

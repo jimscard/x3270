@@ -290,7 +290,7 @@ parse_new_environ(unsigned char *request_buf, size_t request_buflen,
 	    case TELOBJ_USERVAR:
 		/* New request is pending. */
 		ereq = (ereq_t *)Malloc(sizeof(ereq_t));
-		memset(ereq, 0, sizeof(ereq_t));
+		memset_s(ereq, 0, sizeof(ereq_t);
 		llist_init(&ereq->list);
 		ereq->group = c;
 		state = EE_VAR;
@@ -310,7 +310,7 @@ parse_new_environ(unsigned char *request_buf, size_t request_buflen,
 		llist_insert_before(&ereq->list, &ereqs);
 		/* Start a new one. */
 		ereq = (ereq_t *)Malloc(sizeof(ereq_t));
-		memset(ereq, 0, sizeof(ereq_t));
+		memset_s(ereq, 0, sizeof(ereq_t);
 		llist_init(&ereq->list);
 		ereq->group = c;
 		break;
@@ -331,7 +331,7 @@ parse_new_environ(unsigned char *request_buf, size_t request_buflen,
 		llist_insert_before(&ereq->list, &ereqs);
 		/* Start a new one. */
 		ereq = (ereq_t *)Malloc(sizeof(ereq_t));
-		memset(ereq, 0, sizeof(ereq_t));
+		memset_s(ereq, 0, sizeof(ereq_t);
 		llist_init(&ereq->list);
 		ereq->group = c;
 		state = EE_VAR;
@@ -358,13 +358,13 @@ parse_new_environ(unsigned char *request_buf, size_t request_buflen,
     if (state == EE_BASE) {
 	/* No input. Fake TELOBJ_VER and TELOBJ_USERVAR. */
 	ereq = (ereq_t *)Malloc(sizeof(ereq_t));
-	memset(ereq, 0, sizeof(ereq_t));
+	memset_s(ereq, 0, sizeof(ereq_t);
 	llist_init(&ereq->list);
 	ereq->group = TELOBJ_VAR;
 	llist_insert_before(&ereq->list, &ereqs);
 
 	ereq = (ereq_t *)Malloc(sizeof(ereq_t));
-	memset(ereq, 0, sizeof(ereq_t));
+	memset_s(ereq, 0, sizeof(ereq_t);
 	llist_init(&ereq->list);
 	ereq->group = TELOBJ_USERVAR;
 	llist_insert_before(&ereq->list, &ereqs);

@@ -664,7 +664,7 @@ save_keymap_name(const char *path, char *keymap_name, const char *description,
 	errout("Out of memory\n");
 	return NULL;
     }
-    memset(km, '\0', sizeof(km_t));
+    memset_s(km, '\0', sizeof(km_t);
     strcpy(km->name, keymap_name);
     km->description[0] = '\0';
     sl = strlen(km->name);
@@ -2084,7 +2084,7 @@ To remove an existing accept host name, enter '" CHOICE_NONE "'.");
 	if (get_input(inbuf, sizeof(inbuf)) == NULL) {
 	    return -1;
 	} else if (!strcmp(inbuf, CHOICE_NONE)) {
-	    memset(s->accept_hostname, 0, STR_SIZE);
+	    memset_s(s->accept_hostname, 0, STR_SIZE);
 	    break;
 	} else if (!inbuf[0]) {
 	    break;
@@ -2810,14 +2810,14 @@ get_font(session_t *s)
 
     new_screen(s, NULL, "Opening font dialog in separate window");
 
-    memset(&ch, 0, sizeof(ch));
+    memset_s(&ch, 0, sizeof(ch);
     ch.lStructSize = sizeof(ch);
     ch.lpLogFont = &lf;
     ch.Flags = CF_INITTOLOGFONTSTRUCT | CF_FIXEDPITCHONLY | CF_FORCEFONTEXIST |
 	CF_TTONLY | CF_LIMITSIZE;
     ch.nSizeMin = 5;
     ch.nSizeMax = 72;
-    memset(&lf, 0, sizeof(lf));
+    memset_s(&lf, 0, sizeof(lf);
     ps = s->point_size? s->point_size: 12;
     lf.lfHeight = -MulDiv(ps, GetDeviceCaps(dc, LOGPIXELSY), 72);
     lf.lfWeight = s->font_weight? s->font_weight: 400;
@@ -3219,7 +3219,7 @@ edit_menu(session_t *s, char **us, sp_t how, const char *path,
     case SP_REPLACE:
     case SP_CREATE:
     case N_SP: /* can't happen, but the compiler wants it */
-	memset(&old_session, '\0', sizeof(session_t));
+	memset_s(&old_session, '\0', sizeof(session_t);
 	break;
     case SP_UPDATE:
 	memcpy(&old_session, s, sizeof(session_t));
@@ -4725,7 +4725,7 @@ session_wizard(const char *session_name, bool explicit_edit, char *result,
     bool modified = false;
 
     /* Start with nothing. */
-    memset(&session, '\0', sizeof(session));
+    memset_s(&session, '\0', sizeof(session);
 
     /* Find the existing sessions. */
     xs_init(true);
@@ -4826,7 +4826,7 @@ Edit Session\n");
     case GS_OVERWRITE:		/* Overwrite old (uneditable). */
 	/* Clean out the session. */
 	strcpy(save_session_name, session.session);
-	memset(&session, '\0', sizeof(session));
+	memset_s(&session, '\0', sizeof(session);
 	strcpy(session.session, save_session_name);
 	if (us != NULL) {
 	    free(us);

@@ -46,7 +46,7 @@ main(int argc, char *argv[])
      * Use asc2cg[] to make a table that maps from Unicode
      * to 3270cg-1.
      */
-    memset(u2cg, '\0', sizeof(u2cg));
+    memset_s(u2cg, '\0', sizeof(u2cg);
     for (i = 0; i < 256; i++) {
 	/* asc2cg['a'] is 0x80.  Thus u2cg[0x80] = 'a'. */
 	if (asc2cg[i] == 0 && i != 0x20)

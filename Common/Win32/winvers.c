@@ -43,7 +43,7 @@ BOOL IsWindowsVersionOrGreater(WORD major_version, WORD minor_version,
     OSVERSIONINFOEX version_info;
     DWORDLONG condition_mask = 0;
 
-    memset(&version_info, 0, sizeof(OSVERSIONINFOEX));
+    memset_s(&version_info, 0, sizeof(OSVERSIONINFOEX);
     version_info.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
     version_info.dwMajorVersion = major_version;
     version_info.dwMinorVersion = minor_version;

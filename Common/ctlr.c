@@ -2615,7 +2615,7 @@ ctlr_clear(bool can_snap)
     trace_skipping = false;
 
     /* Clear the screen. */
-    memset((char *)ea_buf, 0, ROWS*COLS*sizeof(struct ea));
+    memset_s(char *)ea_buf, 0, ROWS*COLS*sizeof(struct ea));
     ALL_CHANGED;
     cursor_move(0);
     buffer_addr = 0;
@@ -2879,7 +2879,7 @@ ctlr_aclear(int baddr, int count, int clear_ea)
 {
     if (memcmp((char *)&ea_buf[baddr], (char *)zero_buf,
 		count * sizeof(struct ea))) {
-	memset((char *) &ea_buf[baddr], 0, count * sizeof(struct ea));
+	memset_s(char *) &ea_buf[baddr], 0, count * sizeof(struct ea));
 	REGION_CHANGED(baddr, baddr + count);
 	if (area_is_selected(baddr, count)) {
 	    unselect(baddr, count);
@@ -2914,7 +2914,7 @@ ctlr_scroll(unsigned char fg, unsigned char bg)
     memmove(&ea_buf[0], &ea_buf[COLS], qty * sizeof(struct ea));
 
     /* Clear the last line. */
-    memset((char *) &ea_buf[qty], 0, COLS * sizeof(struct ea));
+    memset_s(char *) &ea_buf[qty], 0, COLS * sizeof(struct ea));
     if ((fg & 0xf0) != 0xf0) {
 	fg = 0;
     }

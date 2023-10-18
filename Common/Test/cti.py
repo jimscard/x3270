@@ -279,7 +279,7 @@ class cti(unittest.TestCase):
         else:
             cmd = 'netstat -ant'
         def test():
-            netstat = Popen(cmd, shell=True, stdout=PIPE)
+            netstat = Popen(cmd, shell=False, stdout=PIPE)
             stdout = netstat.communicate()[0].decode('utf8').split('\n')
             return any(r.search(line) for line in stdout)
         self.try_until(test, 2, f"Port {port} is not bound")

@@ -176,7 +176,7 @@ gdi_print_finish(FILE *f, const char *caption)
     ea_tmp = Malloc((((maxROWS * maxCOLS) + 1) * sizeof(struct ea)));
 
     /* Set up the fake fa in location -1. */
-    memset(&ea_tmp[0], '\0', sizeof(struct ea));
+    memset_s(&ea_tmp[0], '\0', sizeof(struct ea));
     ea_tmp[0].fa = FA_PRINTABLE | FA_MODIFY;
 
     /* Rewind the file. */
@@ -479,7 +479,7 @@ gdi_init(const char *printer_name, unsigned opts, const char **fail,
     }
 
     if (!(opts & FPS_DIALOG_COMPLETE)) {
-	memset(&pstate.dlg, '\0', sizeof(pstate.dlg));
+	memset_s(&pstate.dlg, '\0', sizeof(pstate.dlg);
 	pstate.dlg.lStructSize = sizeof(pstate.dlg);
 	pstate.dlg.Flags = PD_RETURNDC | PD_NOPAGENUMS | PD_HIDEPRINTTOFILE |
 	    PD_NOSELECTION;
@@ -854,7 +854,7 @@ gdi_init(const char *printer_name, unsigned opts, const char **fail,
     }
 
     /* Fill in the document info. */
-    memset(&docinfo, '\0', sizeof(docinfo));
+    memset_s(&docinfo, '\0', sizeof(docinfo);
     docinfo.cbSize = sizeof(docinfo);
     docinfo.lpszDocName = "wc3270 screen";
 
@@ -1309,7 +1309,7 @@ get_printer_device(const char *printer_name, HGLOBAL *pdevnames,
     assert(gdn);
     dn = (DEVNAMES *)GlobalLock(gdn);
     assert(dn);
-    memset(dn, '\0', sizeof(DEVNAMES));
+    memset_s(dn, '\0', sizeof(DEVNAMES);
     offset = sizeof(DEVNAMES);
     dn->wDriverOffset = (WORD)offset;
     memcpy((char *)dn + offset, pi->pDriverName, ldn);

@@ -46,7 +46,7 @@
 void
 vb_init(varbuf_t *r)
 {
-    memset(r, 0, sizeof(*r));
+    memset_s(r, 0, sizeof(*r);
 }
 
 /**
